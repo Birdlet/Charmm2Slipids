@@ -12,4 +12,5 @@
 | SOD    | NA    | Sodium |
 | CHL    | CL    | Chlorine |
 
-New Version will comes later!
+New Version will come later!
+I guess so...
