@@ -5,6 +5,7 @@
 
 import sys
 import getopt
+import pandas as pd
 
 def usage():
 	print '''
@@ -35,7 +36,7 @@ paramdict = {}
 for opt,val in opts:
 	if opt in ( '-h', '--help' ):
 		usage()
-		continue
+		sys.exit(1)
 	if opt in ( '-i', '--input' ):
 		paramdict['input'] = val
 		continue
@@ -44,28 +45,34 @@ for opt,val in opts:
 		continue
 
 def convert(fin, fout):
-	ind = []
-	ind_charmm = []
-	itp = open('slipid_top/POPC.itp', 'r')
-	itp_charmm = open('charmm-gui_top/POPC.itp', 'r')
+	# ind = []
+	# ind_old = []
+	# itp = open('slipid_top/POPC.itp', 'r')
+	# itp_charmm = open('charmm-gui_top/POPC.itp', 'r')
 	gro = open(fin, 'r')
 	output = open(fout, 'w')
 
 	
 	gro_line = list(gro.readlines())
 
-	# Get the Atom index of POPC in Slipid
-	itp_line = list(itp.readlines())
-	for i in range(20, 154, 1):
-		ind.append(itp_line[i][34:38])
+	# # Get the Atom index of POPC in Slipid
+	# itp_line = list(itp.readlines())
+	# for i in range(20, 154, 1):
+		# ind.append(itp_line[i][34:38])
 		
-	# Get the Atom index of POPC in Charmm-gui
-	itp_charmm_line = list(itp_charmm.readlines())
-	for i in range(18, 154, 1):
-		ind_charmm.append(itp_charmm_line[i][36:40])
+	# # Get the Atom index of POPC in Charmm-gui
+	# itp_charmm_line = list(itp_charmm.readlines())
+	# for i in range(18, 154, 1):
+		# ind_old.append(itp_charmm_line[i][36:40])
 	
-	#print ind
-	#print ind_charmm
+
+	df_ind = pd.read_table('./a-index/charmm-slipid-popc.txt')
+	ind_old = list(df_ind[0:]['CharA'])
+	ind = list(df_ind[0:]['SlipA'])
+
+	# print ind
+	# print ind_old
+
 	
 	new_line = list(range(0, len(gro_line)))
 	#print new_line
@@ -74,9 +81,8 @@ def convert(fin, fout):
 		tmp = gro_line[i]
 
 		if tmp[5:9].strip() == 'POPC':
-
 				index_Slipid = ind.index(tmp[11:15])
-				index_Charmm = ind_charmm.index(tmp[11:15])
+				index_Charmm = ind_old.index(tmp[11:15])
 				# Exchange the Position
 				new_line[i + index_Slipid - index_Charmm ]  = tmp
 			
@@ -111,9 +117,8 @@ def convert(fin, fout):
 			continue
 
 	
-	itp.close()
 	gro.close()
-	output.close
+	output.close()
 	return(0)
 
 print('Running...')
