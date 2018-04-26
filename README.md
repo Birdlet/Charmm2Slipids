@@ -3,7 +3,7 @@ This is a simple Python3 script to convert non-protein from Charmm-GUI output to
 
 Charmm-GUI is a web based app for building molecular dynamics simulation system for kinds of MD Engine. However, Charmm-GUI only support Charmm36 or Charmm36m force field currently (2018). Charmm36 is one of the best force filed for membrane protein simulation, and it supports plenty kinds of lipids and modified aminoacids. CgenFF is a small molecular force filed compatibale with Charmm36, but GAFF for Amber force field is more accurate for general small moleculars. Hence I write this script to convert POPC\CHOL membrane from Charmm-GUI to Amber compatible format, so I can use GAFF for ligands for a complex membrane protein system.
 
-Atom names of Lipids in Charmm-GUI and Slipids are compatible, but the oder is sometim uncompatible. This script *charmm2slipid.py* simply alter the order of POPC and SOL from Charmm-GUI output. Slpids force field is compatible with AMBER99SB/AMBER99SB-ILDN/AMBER03 force field, I provide two force filed with Slipids in gromacs format here AMBER99SB-ILDN/AMBE03. Anyone can copy to use them, but please they only support POPC/CHOL.
+Atom names of Lipids in Charmm-GUI and Slipids are compatible, but the oder is sometim uncompatible. This script __charmm2slipid.py__ simply alter the order of POPC and SOL from Charmm-GUI output. Slpids force field is compatible with AMBER99SB/AMBER99SB-ILDN/AMBER03 force field, I provide two force filed with Slipids in gromacs format here AMBER99SB-ILDN/AMBE03. Anyone can copy to use them, but please they only support POPC/CHOL.
 
 charmm-gui: http://charmm-gui.org/
 Stockholm lipids (Slipids): http://www.fos.su.se/~sasha/SLipids/Downloads.html
@@ -18,11 +18,11 @@ Stockholm lipids (Slipids): http://www.fos.su.se/~sasha/SLipids/Downloads.html
 | CHL    | CL    | Chlorine |
 
 ## Usage
-usage: charmm2slipid.py [-h] -i [INPUT] -o [OUTPUT]
+>usage: charmm2slipid.py [-h] -i [INPUT] -o [OUTPUT]
 
-A script convert POPC in Charmm-Gui to Amber Slipids
+>A script convert POPC in Charmm-Gui to Amber Slipids
 
-optional arguments:
+>optional arguments:
   -h, --help            show this help message and exit
   -i [INPUT], --input [INPUT]
                         Input .gro file from Charmm-Gui
