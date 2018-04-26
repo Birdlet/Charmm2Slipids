@@ -1,0 +1,20 @@
+
+
+; SLIPIDS
+NTL	14.007000 ;	ammonium nitrogen 
+CTL1	12.011000 ;	sp3 carbon with 1 H (-CH1-) 
+CTL2	12.011000 ;	carbon of methylene group (-CH2-) 
+CTL3	12.011000 ;	carbon of methyl group (-CH3) 
+CTL5	12.011000 ;	carbon of methyl group (-CH3) for tetramethylammonium 
+HAL1	1.008000 ;	alphatic proton 
+HAL2	1.008000 ;	alphatic proton 
+HAL3	1.008000 ;	alphatic proton 
+PL	30.974000 ;	phosphorus
+HL	1.008000 ;	polar H (equivalent to protein H) 
+O2L	15.999400 ;	Nucleic acid =O in phosphate or sulfate 
+OSLP	15.999400 ;	Phosphate oxygen, to avoid conflict with methylacetate type O
+OSL	15.999400 ;	ester oxygen
+CL	12.011000 ;	carbonyl C (acetic acid/methyl acetate)
+OBL	15.999400 ;	acetic acid carboxyl oxygen (e. to protein OB)
+
+
