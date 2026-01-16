@@ -8,12 +8,12 @@ import getopt
 import pandas as pd
 
 def usage():
-	print '''
+	print('''
 	python charmm2slipid.py [option] [value] ...
 	-h or --help
 	-i or --input="Origninal file like Charmm-gui.gro"
 	-o or --output="Modified file like Slipid.gro"
-	'''
+	''')
 	return 0
 
 if ( len(sys.argv ) == 1 ):
@@ -130,7 +130,3 @@ def convert(fin, fout):
 print('Running...')
 convert(opts[0][1], opts[1][1])	
 print('Done.')
-
-
-
-
