@@ -88,6 +88,12 @@ def convert(fin, fout):
 			
 				
 		elif tmp[5:9].strip() == 'CHL1':
+			if tmp[11:15] == "  H3": 
+				_tmp = tmp
+				continue
+			if tmp[11:15] == "  O3":
+				new_line[i-1] =  tmp[0:5] + 'CHOL' + tmp[9:]
+				new_line[i-1] = _tmp[0:5] + 'CHOL' + tmp[9:]
 			new_line[i] = tmp[0:5] + 'CHOL' + tmp[9:]
 			
 		elif tmp[5:9].strip() == 'TIP3':
